@@ -1,0 +1,33 @@
+@use "./mixin.scss" as mixin;
+
+
+.pagination-section{
+    @include mixin.width-height($h:50px);
+    @include mixin.flex();
+    margin-top: 15px;
+    
+    .pagination-wrapper{
+        @include mixin.width-height($w:340px,$h:40px);
+        @include mixin.flex($g:1rem);
+    
+        .pagination-btn{
+            @include mixin.width-height($w:auto);
+            min-width: 30px;
+            padding: 5px;
+            padding-inline: 8px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: var(--nightdevilpt-secondary-back);
+            color: var(--nightdevilpt-primary-color);
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .active-pagination-btn{
+            background-color: var(--nightdevilpt-primary-color);
+            color: var(--nightdevilpt-primary-back);
+        }
+    }
+}

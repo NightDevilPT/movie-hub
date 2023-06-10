@@ -1,0 +1,23 @@
+@use "./mixin.scss" as mixin;
+
+.movie-section {
+    scroll-behavior: smooth;
+	
+	.main-section-header{
+		@include mixin.width-height($h:60px);
+		@include mixin.flex($jc:flex-start);
+		padding-inline: 10px;
+		text-transform: capitalize;
+		font-size: 3rem;
+		color: var(--nightdevilpt-primary-color);
+	}
+
+	.card-wrapper {
+		@include mixin.width-height();
+		padding-inline: 10px;
+		margin-top: 20px;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-gap: 2rem;
+	}
+}

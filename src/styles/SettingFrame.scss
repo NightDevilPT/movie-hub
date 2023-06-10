@@ -1,0 +1,305 @@
+@use "./mixin.scss" as mixin;
+
+.setting-icon-section {
+	@include mixin.width-height($w: 50px, $h: 35px, $p: absolute);
+	@include mixin.flex();
+	padding: 3px;
+	left: 0;
+	z-index: 99;
+	cursor: pointer;
+	top: 160px;
+	color: var(--nightdevilpt-primary-color);
+	background-color: var(--highlight);
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+	.setting-icon {
+		@include mixin.width-height($w: 28px, $h: 28px);
+		animation: spinLoading 2.5s linear infinite;
+		color: var(--nightdevilpt-primary-color);
+	}
+}
+
+.show-setting-section {
+	@include mixin.width-height($h: 100vh, $p: absolute);
+	@include mixin.flex();
+	left: 0;
+	top: 0;
+	z-index: 100;
+	backdrop-filter: blur(15px);
+	transition: 0.2s all ease-in-out;
+
+	.close-setting-icon {
+		@include mixin.width-height($w: 30px, $h: 30px, $p: absolute);
+		top: -30px;
+		right: 0;
+		color: var(--highlight);
+	}
+
+	.setting-wrapper {
+		@include mixin.width-height($w: 340px, $h: 500px);
+		border-radius: 10px;
+		background-color: var(--nightdevilpt-primary-back);
+		border: 1px solid var(--nightdevilpt-secondary-color);
+
+		.setting-header {
+			@include mixin.width-height($h: 60px);
+			@include mixin.flex($jc: flex-start);
+			border-bottom: 1px solid var(--nightdevilpt-secondary-color);
+			padding-inline: 15px;
+			color: var(--nightdevilpt-primary-color);
+			font-size: 2.8rem;
+		}
+
+		.setting-tools-section {
+			@include mixin.width-height($h: calc(100% - 60px));
+			@include mixin.style-scrollbar();
+			padding: 15px;
+			overflow-y: auto;
+
+			.setting-tools-wrapper {
+				@include mixin.width-height($h: auto);
+				margin-top: 10px;
+                background-color: var(--nightdevilpt-secondary-back);
+				border-radius: 5px;
+				padding: 10px;
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+				grid-gap: 1rem;
+
+				.tools-section {
+					@include mixin.width-height($h: 60px);
+					@include mixin.flex(
+						$d: column,
+						$g: 1.8rem,
+						$jc: flex-start
+					);
+					background-color: white;
+					padding: 5px;
+					border-radius: 5px;
+					cursor: pointer;
+
+					.theme-title {
+						@include mixin.width-height();
+						@include mixin.multiline-text-ellipse(1);
+						font-size: 1.4rem;
+						font-weight: bold;
+						color: black;
+						text-transform: capitalize;
+					}
+
+					.theme-colors-section {
+						@include mixin.width-height();
+						@include mixin.flex();
+
+						.theme-colors {
+							@include mixin.width-height(
+								$w: 25px,
+								$h: 25px,
+								$p: absolute
+							);
+							border: 1px solid black;
+							border-radius: 50%;
+
+							&:nth-child(1) {
+								transform: translateX(-25px);
+							}
+							&:nth-child(2) {
+								transform: translateX(-10px);
+							}
+							&:nth-child(3) {
+								transform: translateX(5px);
+							}
+							&:nth-child(4) {
+								transform: translateX(20px);
+							}
+						}
+					}
+				}
+
+                .font-tools-section{
+                    @include mixin.width-height($h: 50px);
+					@include mixin.flex(
+						$d: column,
+						$g: .5rem,
+						$jc: flex-start
+					);
+                    background-color: white;
+					padding: 5px;
+					border-radius: 5px;
+					cursor: pointer;
+
+                    .font-title{
+                        @include mixin.width-height();
+                        text-align: left;
+                        font-size: 1.6rem;
+                    }
+                    .font-subtitle{
+                        @include mixin.width-height();
+                        text-align: left;
+                        font-size: 1rem;
+                        @include mixin.multiline-text-ellipse(1);
+                    }
+                }
+
+				.active-tools-section {
+					@include mixin.width-height();
+					border-radius: 5px;
+
+					&::after {
+						@include mixin.width-height(
+							$w: calc(100% + 6px),
+							$h: calc(100% + 6px),
+							$p: absolute
+						);
+						content: "";
+						left: -4px;
+						top: -4px;
+						border-radius: 5px;
+						border: 1px dashed var(--nightdevilpt-primary-color);
+					}
+				}
+
+                .add-icon {
+                    @include mixin.width-height(
+                        $w: 25px,
+                        $h: 25px,
+                        $p: absolute
+                    );
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    color: black;
+                }
+
+                .highlight-color-section{
+                    @include mixin.width-height($h:40px);
+                    border-radius: 5px;
+                }
+			}
+		}
+
+
+
+	}
+
+	.popup-section {
+		@include mixin.width-height($w: 300px, $h: auto, $p: absolute);
+		@include mixin.flex($d: column, $jc: flex-start,$g:1rem);
+		background-color: var(--nightdevilpt-secondary-back);
+		border: 1px solid var(--nightdevilpt-secondary-color);
+		border-radius: 10px;
+		padding-bottom: 15px;
+
+		.popup-header {
+			@include mixin.width-height($h: 40px);
+			@include mixin.flex($jc: flex-start);
+			border-bottom: 1px solid var(--nightdevilpt-secondary-color);
+			padding-inline: 15px;
+			color: var(--nightdevilpt-primary-color);
+			font-size: 2rem;
+
+			.close-popup-icon {
+				@include mixin.width-height($w: 25px, $h: 25px, $p: absolute);
+				right: 10px;
+				cursor: pointer;
+			}
+		}
+
+		.theme-preview {
+			@include mixin.width-height($w: 100px, $h: 50px);
+			@include mixin.flex();
+			margin-top: 10px;
+			border-radius: 5px;
+			background-color: white;
+
+			.theme-preview-color {
+				@include mixin.width-height($w: 25px, $h: 25px, $p: absolute);
+				border: 1px solid black;
+				border-radius: 50%;
+
+				&:nth-child(1) {
+					transform: translateX(-30px);
+				}
+				&:nth-child(2) {
+					transform: translateX(-10px);
+				}
+				&:nth-child(3) {
+					transform: translateX(10px);
+				}
+				&:nth-child(4) {
+					transform: translateX(30px);
+				}
+			}
+		}
+
+		.inputs-section {
+			@include mixin.width-height();
+			@include mixin.flex($jc: flex-start, $w: wrap, $g: 1rem);
+			margin-top: 5px;
+			padding-inline: 15px;
+
+			label {
+                min-width: 120px;
+				color: var(--nightdevilpt-primary-color);
+				font-size: 1.6rem;
+				font-weight: bold;
+			}
+			input[type="color"] {
+				flex: 1;
+                height: 30px;
+				border: none;
+				outline: none;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				background-color: transparent;
+                cursor: pointer;
+
+				&::-webkit-color-swatch {
+                    border-radius: 5px;
+					border: none;
+				}
+
+				&::-moz-color-swatch {
+					border-radius: 5px;
+					border: none;
+				}
+			}
+            input[type="text"]{
+                @include mixin.width-height();
+                min-width: 100%;
+                height: 30px;
+                border-radius: 5px;
+                border: none;
+                outline: none;
+                color: black;
+                padding-inline: 10px;
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
+		}
+
+        .add-button{
+            @include mixin.width-height($w:calc(100% - 30px),$h:35px);
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background-color: var(--nightdevilpt-primary-color);
+            color: var(--nightdevilpt-primary-back);
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+	}
+
+    .hide-popup-section{
+        display: none;
+    }
+}
+
+.hide-setting-section {
+	transform: scale(0);
+	z-index: 0;
+	transition: 0.2s all ease-in-out;
+}

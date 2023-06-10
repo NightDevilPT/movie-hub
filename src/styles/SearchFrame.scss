@@ -1,0 +1,72 @@
+@use "./mixin.scss" as mixin;
+
+
+.search-tab-section{
+    @include mixin.width-height($h:auto,$p:sticky);
+    @include mixin.flex($jc:space-between);
+    top: 0;
+    border-bottom: 1px solid var(--nightdevilpt-secondary-back);
+    z-index: 1;
+    background-color: var(--nightdevilpt-primary-back);
+
+
+    .search-input-section{
+        @include mixin.width-height($w:360px,$h:50px);
+        @include mixin.flex($g:1rem);
+        padding: 8px;
+        padding-inline: 10px;
+
+        .search-btn{
+            @include mixin.width-height($w:auto,$h:100%);
+            border-radius: 5px;
+            background-color: var(--highlight);
+            font-size: 1.6rem;
+            color: var(--nightdevilpt-primary-color);
+            padding-inline: 15px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .search-input{
+            @include mixin.width-height($h:100%);
+            flex: 1;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 5px;
+            background-color: var(--nightdevilpt-secondary-back);
+            color: var(--nightdevilpt-primary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+}
+
+.search-data-section{
+    @include mixin.width-height();
+
+    .tabs-section{
+        position: sticky;
+        top: 50px;
+    }
+
+    .search-card-wrapper{
+        @include mixin.width-height();
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+        grid-gap: 1rem;
+        padding-inline: 1rem;
+        margin-top: 1rem;
+        overflow: hidden;
+    }
+
+    .not-data{
+        @include mixin.width-height($h:60px);
+        @include mixin.flex();
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--nightdevilpt-primary-color);
+    }
+}

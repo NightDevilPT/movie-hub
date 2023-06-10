@@ -1,0 +1,46 @@
+@use "./mixin.scss" as mixin;
+
+.peoples-section {
+	@include mixin.width-height();
+	padding-inline: 10px;
+	margin-top: 20px;
+	padding-top: 20px;
+
+	.peoples-wrapper {
+		@include mixin.width-height();
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		grid-gap: 2rem;
+
+		.peoples-card-section {
+			@include mixin.width-height();
+			padding: 10px;
+			background-color: var(--nightdevilpt-secondary-back);
+			border-radius: 10px;
+
+			.lazy-load-image-background {
+				@include mixin.width-height();
+
+				img {
+					@include mixin.width-height();
+					object-fit: cover;
+					border-radius: 5px;
+				}
+			}
+
+			.people-name {
+				@include mixin.width-height();
+				@include mixin.flex();
+				margin-top: 5px;
+				color: var(--nightdevilpt-primary-color);
+				font-size: 2rem;
+			}
+			.people-job {
+				@include mixin.width-height();
+				@include mixin.flex();
+				color: var(--nightdevilpt-secondary-color);
+				font-size: 1.5rem;
+			}
+		}
+	}
+}

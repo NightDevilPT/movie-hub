@@ -1,20 +1,44 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# [MovieHUB](https://movie-hub-git-main-nightdevilpt.vercel.app/)
 
-First, run the development server:
+## Description
+In this web app you can search Movie, Tv Shows and Popular Person data. I used [TMDB API](https://www.themoviedb.org/) to get Movies,Tv shows and popular persons data.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+In this web app you can watch video trailers.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. you can create your own a Custome Theme color palates.
+2. You can add Font Family by Adding Font Name and Font URL from [google fonts](https://fonts.google.com/).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+If you save color palates and Font then this Fonts and Custome Theme Color Palates are available for all user because your color palates and Font saved in mongodb database.
+
+
+### Packages Used
+
+#### 1. Redux Toolkit ( Global Data / State Management )
+#### 2. SCSS ( Styling Web Page )
+#### 3. React-icons ( Icons )
+#### 4. React lazy-load-image-component
+#### 5. React Player ( for Playing youtube video )
+#### 6. Axios ( for fetching data )
+#### 7. Mongoose ( for database )
+
+## MovieHUB Web App Images
+![Screenshot from 2023-06-09 18-52-24](/public/Screenshot%20from%202023-06-08%2015-27-16.png)
+
+
+
+## API
+
+### [TMDB API](https://www.themoviedb.org/)
+
+## Development
+
+1. Install NextJS ```npx create-next-app@latest```
+2. copy ```package.json``` file and paste in your project root folder.
+3. now install all dependencies by using this command in command promt(windows) or terminal(linux) ```npm i```
+4. start the development server ```npm run dev```
+
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 

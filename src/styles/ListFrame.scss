@@ -1,0 +1,21 @@
+@use "./mixin.scss" as mixin;
+
+
+.list-section{
+    @include mixin.width-height($w:340px,$h:auto);
+    @include mixin.flex($jc:flex-start,$ai:flex-start,$g:1rem);
+    background-color: red;
+    padding: 5px;
+    border-radius: 10px;
+
+    .list-image-section{
+        @include mixin.width-height($h:100%,$w:150px);
+        @include mixin.flex();
+
+        img{
+            @include mixin.width-height($h:100%,$w:100%);
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+}

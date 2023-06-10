@@ -1,0 +1,48 @@
+@mixin width-height($w: 100%, $h: auto, $p: relative) {
+	width: $w;
+	height: $h;
+	position: $p;
+}
+
+@mixin flex($d: row, $jc: center, $ai: center, $g: 0px, $w: nowrap) {
+	display: flex;
+	flex-direction: $d;
+	gap: $g;
+	justify-content: $jc;
+	align-items: $ai;
+	flex-wrap: $w;
+}
+
+@mixin media-break($break) {
+	@media (max-width: $break) {
+		@content;
+	}
+}
+
+@mixin style-scrollbar($mt: 0px) {
+	&::-webkit-scrollbar {
+		width: 8px;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background-color: var(--highlight);
+	}
+	&::-webkit-scrollbar-track {
+		margin-top: $mt;
+	}
+}
+
+@mixin multiline-text-ellipse($line: 2) {
+	display: -webkit-box;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+@mixin spinLoading() {
+	@keyframes spinLoading {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}

@@ -1,0 +1,56 @@
+@use "./mixin.scss" as mixin;
+
+
+.card-section{
+    @include mixin.width-height($w:100%,$h:auto);
+    padding: 10px;
+    background-color: var(--nightdevilpt-secondary-back);
+    border-radius: 10px;
+    cursor: pointer;
+
+    .card-image-section{
+        @include mixin.width-height($h:auto);
+        min-height: 270px;
+
+        img{
+            @include mixin.width-height($h:100%);
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+
+    .card-info-section{
+        @include mixin.width-height();
+        @include mixin.flex($d:column,$g:.3rem,$jc:flex-start,$ai:flex-start);
+        margin-top: 10px;
+
+        .card-title{
+            @include mixin.multiline-text-ellipse(1);
+            font-size: 1.8rem;
+            color: var(--nightdevilpt-primary-color);
+        }
+        .card-date{
+            @include mixin.width-height();
+            margin-top: 5px;
+            font-size: 1.1rem;
+            color: var(--nightdevilpt-secondary-color);
+        }
+        .card-rating{
+            @include mixin.width-height($w:auto,$h:18px,$p:absolute);
+            @include mixin.flex($g:.3rem);
+            bottom: 0;
+            right: 0;
+            padding: 3px;
+            padding-inline: 5px;
+            color: white;
+            border-radius: 5px;
+
+            .rating-icon{
+                @include mixin.width-height($w:13px,$h:13px);
+            }
+            .rating-text{
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

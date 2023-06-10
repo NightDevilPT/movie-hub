@@ -1,0 +1,35 @@
+@use "./mixin.scss" as mixin;
+
+
+.video-popup-section{
+    @include mixin.width-height($h:100%,$p:fixed);
+    display: none;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    backdrop-filter: blur(5px);
+
+    .video-player{
+        @include mixin.width-height($w:700px,$h:400px);
+        @include mixin.flex($d:column,$ai:flex-end);
+        min-height: 400px;
+        background-color: var(--nightdevilpt-primary-back);
+
+        @include mixin.media-break($break:720px){
+            width: 100%;
+            height: 250px;
+            padding: 10px;
+        }
+
+        .close-video-popup-icon{
+            @include mixin.width-height($w:30px,$h:30px);
+            color: var(--nightdevilpt-primary-color);
+            cursor: pointer;
+        }
+    }
+}
+
+
+.show-video-popup-section{
+    @include mixin.flex();
+}

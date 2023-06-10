@@ -1,0 +1,48 @@
+@use "./mixin.scss" as mixin;
+
+
+.carousel-section{
+    @include mixin.width-height($h:auto);
+    margin-top: 10px;
+    padding-inline: 10px;
+    
+    .carousel-header{
+        @include mixin.width-height($h:50px);
+        @include mixin.flex($jc:flex-start);
+
+        .carousel-title{
+            color: var(--nightdevilpt-primary-color);
+            font-size: 2.8rem;
+        }
+        .carousel-icon{
+            @include mixin.width-height($w:30px,$h:30px);
+            color: var(--nightdevilpt-primary-color);
+            transition: .2s all ease-in-out;
+
+            &:hover{
+                color: var(--highlight);
+            }
+        }
+    }
+
+    .carousel-wrapper{
+        @include mixin.width-height($h:auto);
+        @include mixin.flex($g:1.5rem,$jc:flex-start,$ai:flex-start);
+        @include mixin.style-scrollbar();
+        overflow-x: auto;
+        overflow-y: hidden;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+
+        .carousel-loading{
+            @include mixin.width-height($h:150px);
+            @include mixin.flex();
+        }
+
+        .carousel-posters{
+            @include mixin.width-height($w:200px);
+            min-width: 200px;
+        }
+    }
+}

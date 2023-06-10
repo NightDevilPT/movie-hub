@@ -1,0 +1,42 @@
+@use "./mixin.scss" as mixin;
+
+
+.videos-card-section{
+    @include mixin.width-height();
+    @include mixin.flex();
+    min-height: 170px;
+    cursor: pointer;
+    
+    .lazy-load-image-background{
+        @include mixin.width-height();
+        overflow: hidden;
+        border-radius: 10px;
+
+        img{
+            @include mixin.width-height($h:100%);
+            object-fit: cover;
+        }
+    }
+
+    .video-opacity-layer{
+        @include mixin.width-height($h:100%,$p:absolute);
+        z-index: 1;
+        border-radius: 10px;
+        background-color: var(--nightdevilpt-primary-back);
+        opacity: .5;
+        filter: blur(0px);
+    }
+
+    .play-video-icon{
+        @include mixin.width-height($w:50px,$h:50px,$p:absolute);
+        color: var(--nightdevilpt-primary-color);
+        z-index: 2;
+        transition: .2s all ease-in-out;
+    }
+
+    &:hover{
+        .play-video-icon{
+            color: #ff2448;
+        }
+    }
+}

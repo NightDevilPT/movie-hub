@@ -1,0 +1,293 @@
+@use "./mixin.scss" as mixin;
+
+
+.details-section {
+	@include mixin.width-height($h: auto);
+	@include mixin.flex();
+
+	.details-banner {
+		@include mixin.width-height($h: 100%, $p: absolute);
+
+		.lazy-load-image-background {
+			@include mixin.width-height($h: 100%);
+
+			img {
+				@include mixin.width-height($h: 100%);
+				object-fit: cover;
+				object-position: top;
+			}
+		}
+
+		&::after {
+			@include mixin.width-height($h: 100%, $p: absolute);
+			content: "";
+			top: 0;
+			left: 0;
+			opacity: 0.8;
+			background-color: var(--nightdevilpt-primary-back);
+		}
+
+		&::before {
+			@include mixin.width-height($h: 300px, $p: absolute);
+			content: "";
+			left: 0;
+			bottom: 0;
+			background: linear-gradient(
+				180deg,
+				transparent 0%,
+				var(--nightdevilpt-primary-back)
+			);
+			z-index: 1;
+		}
+	}
+
+	.details-wrapper {
+		@include mixin.width-height($w: 1100px);
+		@include mixin.flex($jc: flex-start, $ai: flex-start, $g: 1rem);
+		margin-top: 20px;
+		z-index: 1;
+
+
+		@include mixin.media-break($break:1140px){
+			width: 100%;
+			padding-inline: 10px;
+		}
+
+		@include mixin.media-break($break:700px){
+			@include mixin.flex($d:column,$jc:flex-start,$g:1rem);
+			// margin-top: 20px;
+		}
+
+		.details-poster-section {
+			@include mixin.width-height($w: 330px, $h: 100%);
+			@include mixin.flex();
+			min-width: 330px;
+
+			.lazy-load-image-background {
+				@include mixin.width-height($w: 300px, $h: 100%);
+
+				img {
+					@include mixin.width-height();
+					object-fit: cover;
+					border-radius: 10px;
+				}
+			}
+		}
+
+		.details-poster-info-section {
+			@include mixin.width-height($h: auto);
+			@include mixin.flex($d: column, $jc: flex-start, $ai: flex-start);
+
+			.details-poster-name {
+				@include mixin.width-height();
+				color: var(--nightdevilpt-primary-color);
+				font-size: 3.5rem;
+			}
+
+			.details-poster-tagline {
+				@include mixin.width-height();
+				font-size: 1.6rem;
+				font-style: italic;
+				color: var(--nightdevilpt-secondary-color);
+			}
+
+			.details-genres-section {
+				@include mixin.width-height();
+				@include mixin.flex($jc:flex-start,$g:1rem,$w:wrap);
+				margin-top: 10px;
+
+				.genres {
+					@include mixin.width-height($w: auto);
+					padding: 3px;
+					padding-inline: 8px;
+					background-color: #ff2146;
+					color: white;
+					font-size: 1.5rem;
+					font-weight: bold;
+					border-radius: 5px;
+				}
+
+				
+			}
+
+			.rating-trailer-section{
+				@include mixin.width-height();
+				@include mixin.flex($jc:flex-start,$g:2rem);
+				margin-top: 15px;
+
+				.details-rating {
+					@include mixin.width-height($w:auto);
+					@include mixin.flex($g: 0.5rem);
+					padding: 4px;
+					padding-right: 8px;
+					color: white;
+					border-radius: 5px;
+
+					.rating-icon {
+						@include mixin.width-height($w: 20px, $h: 20px);
+					}
+					.rating-text{
+						font-size: 1.5rem;
+						font-weight: bold;
+					}
+				}
+
+				.trailer-section{
+					@include mixin.width-height($w:auto);
+					@include mixin.flex($g:.5rem);
+					color: var(--nightdevilpt-primary-color);
+					transition: .2s all ease-in-out;
+					cursor: pointer;
+					&:hover{
+						color: #ff2146;
+					}
+
+					.trailer-icon{
+						@include mixin.width-height($w:30px);
+					}
+					.trailer-text{
+						font-size: 1.5rem;
+						font-weight: bold;
+					}
+				}
+			}
+
+
+			.details-overview-section{
+				@include mixin.width-height();
+				margin-top: 10px;
+
+				.details-overview-title{
+					@include mixin.width-height();
+					color: var(--nightdevilpt-primary-color);
+					font-size: 2.4rem;
+					font-style: italic
+				}
+				.details-overview{
+					@include mixin.width-height();
+					margin-top: 5px;
+					text-align: left;
+					font-size: 1.6rem;
+					color: var(--nightdevilpt-primary-color);
+				}
+			}
+
+			.details-subinfo-section{
+				@include mixin.width-height();
+				@include mixin.flex($jc:flex-start,$g:0.5rem,$w:wrap);
+				margin-top: 15px;
+				padding-bottom: 10px;
+				// border-bottom: 1px solid var(--nightdevilpt-secondary-color);
+			
+				.details-subinfo{
+					@include mixin.width-height($w:auto);
+					@include mixin.flex($jc:flex-start,$ai:flex-start,$g:1rem);
+					margin-right: 1rem;
+
+					.subinfo-title{
+						font-size: 1.8rem;
+						color: var(--nightdevilpt-primary-color);
+						font-style: italic;
+					
+						span{
+							padding-left: 10px;
+							font-size: 1.8rem;
+							color: var(--nightdevilpt-secondary-color);
+							font-weight: normal;
+							font-style: normal;
+							font-weight: bold;
+						}
+					}
+					.subinfo-text{
+						font-size: 1.8rem;
+						font-weight: bold;
+						color: var(--nightdevilpt-secondary-color);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+.details-frame{
+	@include mixin.width-height();
+	scroll-behavior: smooth;	
+
+	.details-tabs-data-section{
+		@include mixin.width-height($h:auto);
+		padding-inline: 10px;
+		margin-top: 20px;
+
+		.not-data{
+			@include mixin.width-height($h:60px);
+			@include mixin.flex();
+			font-size: 2rem;
+			font-weight: bold;
+			color: var(--nightdevilpt-primary-color);
+		}
+
+		.tabs-overview-section{
+			@include mixin.width-height();
+			@include mixin.flex($d:column,$g:1rem);
+		
+			.tabs-overview-info{
+				@include mixin.width-height($h:auto);
+				min-height: 40px;
+				@include mixin.flex($jc:flex-start,$g:1rem,$ai:flex-start);
+
+				.tabs-overview-title{
+					font-size: 1.8rem;
+					min-width: 180px;
+					white-space: nowrap;
+					color: var(--nightdevilpt-primary-color);
+
+					@include mixin.media-break($break:470px){
+						min-width: 130px;
+						white-space:normal;
+					}
+				}
+				.tabs-overview-text{
+					@include mixin.width-height();
+					font-size: 1.8rem;
+					color: var(--nightdevilpt-secondary-color);
+					font-weight: bold;
+				}
+			}
+		}
+
+		.tabs-castcrew-section{
+			@include mixin.width-height();
+			padding-inline: 10px;
+			margin-top: 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+			grid-gap: 1rem;
+		}
+
+		.tabs-videos-section{
+			@include mixin.width-height();
+			padding-inline: 10px;
+			margin-top: 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+			grid-gap: 2rem;
+		}
+
+		.tabs-card-section{
+			@include mixin.width-height();
+			padding-inline: 10px;
+			margin-top: 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+			grid-gap: 2rem;
+
+
+			@include mixin.media-break($break:460px){
+				@include mixin.flex($g:2rem,$w:wrap);
+			}
+		}
+
+	}
+}

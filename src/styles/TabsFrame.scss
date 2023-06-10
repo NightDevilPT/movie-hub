@@ -1,0 +1,42 @@
+@use "./mixin.scss" as mixin;
+
+
+.tabs-section{
+    @include mixin.width-height($h:60px,$p:sticky);
+    @include mixin.flex($jc:flex-start,$g:1rem);
+    top: 0px;
+    left: 0;
+    padding-inline: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--nightdevilpt-secondary-color);
+    overflow-x: auto;
+    z-index: 10;
+    background-color: var(--nightdevilpt-primary-back);
+
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
+    .tabs{
+        @include mixin.width-height($w:180px,$h:35px);
+        @include mixin.flex();
+        min-width: 180px;
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        color: var(--nightdevilpt-primary-color);
+        cursor: pointer;
+    }
+    .active-tabs{
+        color: var(--highlight);
+    }
+
+    .indicator{
+        @include mixin.width-height($w:100px,$h:4px,$p:absolute);
+        bottom: 5px;
+        background-color: var(--highlight);
+        border-radius: 5px;
+        transition: .2s all ease-in-out;
+    }
+}

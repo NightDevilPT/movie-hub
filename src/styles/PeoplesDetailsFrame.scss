@@ -1,0 +1,178 @@
+@use "./mixin.scss" as mixin;
+
+.people-details-section {
+	@include mixin.width-height($w: 1100px);
+	@include mixin.flex($jc: flex-start, $ai: flex-start, $g: 1rem);
+	margin: 20px auto;
+
+	@include mixin.media-break($break: 1140px) {
+		width: 100%;
+		padding-inline: 10px;
+	}
+
+	@include mixin.media-break($break: 700px) {
+		@include mixin.flex($d: column, $jc: flex-start, $g: 1rem);
+	}
+
+	.person-poster-section {
+		@include mixin.width-height($w: 330px);
+		@include mixin.flex();
+		min-width: 330px;
+
+		.lazy-load-image-background {
+			@include mixin.width-height($w: 300px, $h: 100%);
+
+			img {
+				@include mixin.width-height();
+				object-fit: cover;
+				border-radius: 10px;
+			}
+		}
+	}
+
+	.person-info-section {
+		@include mixin.width-height();
+
+		.person-name {
+			@include mixin.width-height();
+			@include mixin.flex($jc: flex-start, $g: 1rem);
+			color: var(--nightdevilpt-primary-color);
+			font-size: 3.5rem;
+
+			.homepage-link-icon {
+				color: var(--nightdevilpt-primary-color);
+			}
+		}
+
+		.social-section {
+			@include mixin.width-height();
+			@include mixin.flex($jc: flex-start, $g: 1.5rem);
+			margin-top: 10px;
+
+			.social-icon {
+				@include mixin.width-height($w: 2.5rem, $h: 2.5rem);
+				color: var(--nightdevilpt-primary-color);
+			}
+		}
+
+		.biography-section {
+			@include mixin.width-height();
+			margin-top: 10px;
+
+			.biography-header {
+				@include mixin.width-height();
+				color: var(--nightdevilpt-primary-color);
+				font-size: 2.5rem;
+				font-style: italic;
+			}
+			.biography-text {
+				@include mixin.width-height();
+				color: var(--nightdevilpt-primary-color);
+				font-size: 1.6rem;
+				overflow: hidden;
+			}
+
+			.not-data{
+				@include mixin.width-height($h:auto);
+				@include mixin.flex($jc:flex-start);
+				font-size: 2rem;
+				font-weight: bold;
+				color: var(--nightdevilpt-primary-color);
+			}
+
+			.readmore-btn {
+				@include mixin.width-height($p: sticky, $h: 20px);
+				bottom: 0;
+				z-index: 1;
+				border: none;
+				outline: none;
+				padding-inline: 5px;
+				background-color: var(--nightdevilpt-primary-back);
+				color: #006eff;
+				font-weight: bold;
+				cursor: pointer;
+
+				&::after {
+					@include mixin.width-height($h: 2rem, $p: absolute);
+					content: "";
+					left: 0;
+					top: -2rem;
+					background: linear-gradient(
+						180deg,
+						transparent 0%,
+						var(--nightdevilpt-primary-back)
+					);
+				}
+			}
+		}
+
+        .person-data{
+            @include mixin.width-height();
+            @include mixin.flex($jc:flex-start,$g:1rem);
+            margin-top: 10px;
+            font-size: 1.8rem;
+            color: var(--nightdevilpt-primary-color);
+        }
+	}
+}
+
+.person-tabs-section {
+	@include mixin.width-height($h: auto);
+	padding-inline: 10px;
+	margin-top: 20px;
+
+    .not-data{
+        @include mixin.width-height($h:60px);
+        @include mixin.flex();
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--nightdevilpt-primary-color);
+    }
+
+    .person-tabs-data-section{
+        @include mixin.width-height();
+
+        .tabs-overview-section{
+            @include mixin.width-height();
+            @include mixin.flex($d:column,$g:1rem);
+        
+            .tabs-overview-info{
+                @include mixin.width-height($h:auto);
+                min-height: 40px;
+                @include mixin.flex($jc:flex-start,$g:1rem,$ai:flex-start);
+    
+                .tabs-overview-title{
+                    font-size: 1.8rem;
+                    min-width: 180px;
+                    white-space: nowrap;
+                    color: var(--nightdevilpt-primary-color);
+    
+                    @include mixin.media-break($break:470px){
+                        min-width: 130px;
+                        white-space:normal;
+                    }
+                }
+                .tabs-overview-text{
+                    @include mixin.width-height();
+                    font-size: 1.8rem;
+                    color: var(--nightdevilpt-secondary-color);
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .tabs-card-section{
+			@include mixin.width-height();
+			padding-inline: 10px;
+			margin-top: 20px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+			grid-gap: 2rem;
+
+
+			@include mixin.media-break($break:460px){
+				@include mixin.flex($g:2rem,$w:wrap);
+			}
+		}
+    }
+}

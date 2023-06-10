@@ -1,0 +1,136 @@
+@use "./mixin.scss" as mixin;
+
+
+.header-section{
+    @include mixin.width-height($h:80px,$p:sticky);
+    @include mixin.flex($jc:flex-end,$g:2rem);
+    top: 0;
+    left: 0;
+    background-color: var(--nightdevilpt-primary-back);
+    box-shadow: 0px 0px 10px var(--nightdevilpt-primary-back);
+    padding-inline: 15px;
+    z-index: 99;
+    border-bottom: 1px solid var(--nightdevilpt-secondary-back);
+
+    .header-title{
+        @include mixin.width-height($w:auto,$p:absolute);
+        left: 15px;
+        color: var(--nightdevilpt-primary-color);
+        font-size: 3.5rem;
+        cursor: pointer;
+
+        .highlight{
+            color: var(--highlight);
+        }
+    }
+
+
+    .search-icon{
+        @include mixin.width-height($w:60px,$h:35px);
+        color: var(--nightdevilpt-primary-color);
+        background-color: var(--highlight);
+        padding: 4px;
+        border-radius: 5px;
+    }
+
+
+    .navbar{
+        @include mixin.width-height($w:auto,$h:100%);
+        @include mixin.flex($g:1rem);
+
+        button{
+            @include mixin.width-height($w:100px,$h:35px);
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--nightdevilpt-primary-color);
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: .2s all ease-in-out;
+
+            &:hover{
+                color: var(--highlight);
+            }
+        }
+
+        .navbar-title{
+            display: none;
+        }
+
+
+        @include mixin.media-break(640px){
+            @include mixin.width-height($w:200px,$h:100%,$p:fixed);
+            @include mixin.flex($d:column,$jc:flex-start,$ai:stretch,$g:2rem);
+            left: -200px;
+            top: 0;
+            background-color: var(--nightdevilpt-primary-back);
+            border-right: 1px solid var(--nightdevilpt-secondary-back);
+            transition: .5s all ease-in-out;
+
+            .navbar-title{
+                @include mixin.width-height($h:60px);
+                @include mixin.flex($jc:flex-start);
+                font-size: 3rem;
+                color: var(--nightdevilpt-primary-color);
+                border-bottom: 1px solid var(--nightdevilpt-secondary-back);
+                padding-inline: 15px;
+            }
+
+            button{
+                @include mixin.width-height($h:50px);
+                font-size: 1.8rem;   
+            }
+        }
+    }
+
+    .show-navbar{
+        @include mixin.media-break($break:750px){
+            left: 0;
+            z-index: 11;
+        }
+    }
+
+
+    .hamburger{
+        @include mixin.width-height($w:40px,$h:40px);
+        @include mixin.flex();
+        display: none;
+
+        @include mixin.media-break($break:640px){
+            display: flex;
+        }
+
+
+        span{
+            @include mixin.width-height($h:4px,$w:35px,$p:absolute);
+            background-color: var(--nightdevilpt-primary-color);
+            border-radius: 10px;
+            transition: .2s all ease-in-out;
+
+            &:first-child{
+                transform: translateY(-12px);
+            }
+
+            &:last-child{
+                transform: translateY(12px);
+            }
+        }
+    }
+
+    .active-hamburger{
+        span{
+            &:first-child{
+                transform: translateY(0) rotate(45deg);
+            }
+
+            &:nth-child(2){
+                width: 0;
+            }
+
+            &:last-child{
+                transform: translateY(0) rotate(-45deg);
+            }
+        }
+    }
+}

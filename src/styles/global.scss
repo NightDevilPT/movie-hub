@@ -1,0 +1,93 @@
+@use "./mixin.scss" as mixin;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--family);
+}
+
+html{
+    font-size: 10px;
+}
+
+.web-loading-section{
+    @include mixin.width-height($h:100vh);
+    @include mixin.flex();
+    background-color: black;
+
+    .loading-section{
+        @include mixin.width-height($h:300px);
+        @include mixin.flex($g:2rem);
+
+        .loading-text{
+            font-size: 4rem;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+
+            .highlight{
+                color: red;
+            }
+        }
+        .loading{
+            color: white;
+        }
+    }
+}
+
+:any-link{
+    text-decoration: none;
+}
+
+
+.loading-section{
+    @include mixin.width-height($h:300px);
+    @include mixin.flex();
+
+    .loading{
+        @include mixin.width-height($w:90px,$h:90px);
+        @include mixin.flex();
+        color: var(--nightdevilpt-primary-color);
+        font-family: Arial, Helvetica, sans-serif;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 1.3rem;
+    
+
+        &::after{
+            @include mixin.width-height($h:100%,$p:absolute);
+            @include mixin.spinLoading();
+            content: "";
+            border-radius: 50%;
+            border: 4px solid #343434;
+            border-left: 4px solid var(--highlight);
+            border-right: 4px solid var(--highlight);
+            animation: spinLoading 3s linear infinite;
+        }
+    }
+}
+
+
+.App{
+    @include mixin.width-height($h:100vh);
+
+    .main-section{
+        @include mixin.width-height($h:calc(100% - 80px));
+        @include mixin.style-scrollbar($mt:0px);
+        margin-top:0px;
+        background-color: var(--nightdevilpt-primary-back);
+        overflow-y: auto;
+        padding-bottom: 20px;
+
+        @include mixin.media-break($break:700px){
+            &::-webkit-scrollbar{
+                display: none;
+            }
+        }
+    }
+
+    .highlight{
+        color: var(--highlight);
+    }
+}

@@ -1,0 +1,66 @@
+@use "./mixin.scss" as mixin;
+
+
+.hero-section{
+    @include mixin.width-height($h:450px);
+    background-color: white;
+
+    @include mixin.media-break($break:640px){
+        height: 350px;
+    }
+
+
+    .lazy-load-image-background{
+        @include mixin.width-height($h:100%);
+        @include mixin.flex();
+
+        img{
+            @include mixin.width-height($h:100%);
+            object-fit: cover;
+        }
+    }
+
+    .opacity-layer{
+        @include mixin.width-height($h:100%,$p:absolute);
+        left: 0;
+        top: 0;
+        background-color: var(--nightdevilpt-primary-back);
+        opacity: .4;
+    }
+
+    .opacity-up-layer{
+        @include mixin.width-height($h:300px,$p:absolute);
+        left: 0;
+        bottom: 0;
+        background:linear-gradient(180deg,transparent 0%,var(--nightdevilpt-primary-back));
+        z-index: 1;
+    }
+
+    .herobanner-intro-section{
+        @include mixin.width-height($h:100%,$p:absolute);
+        @include mixin.flex($d:column);
+        left: 0;
+        top: 0;
+        z-index: 1;
+        padding-inline: 15px;
+
+        .herobanner-header{
+            text-align: center;
+            font-size: 5rem;
+            color: var(--nightdevilpt-primary-color);
+
+            @include mixin.media-break($break:640px){
+                font-size: 4rem;
+            }
+        }
+        .herobanner-subheader{
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--nightdevilpt-primary-color);
+            
+            @include mixin.media-break($break:640px){
+                font-size: 2rem;
+            }
+        }
+    }
+}
