@@ -24,7 +24,7 @@ If you save color palates and Font then this Fonts and Custome Theme Color Palat
 #### 7. Mongoose ( for database )
 
 ## MovieHUB Web App Images
-![Screenshot from 2023-06-09 18-52-24](/public/thumbnails.js)
+![Screenshot from 2023-06-09 18-52-24](/public/thumbnails.png)
 ![Screenshot from 2023-06-09 18-52-24](/public/1.png)
 ![Screenshot from 2023-06-09 18-52-24](/public/2.png)
 ![Screenshot from 2023-06-09 18-52-24](/public/3.png)
